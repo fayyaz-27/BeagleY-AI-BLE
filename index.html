@@ -1,61 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hand Physiotherapy &middot; BLE Measurement System</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeagleY Physio</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <main class="card">
-    <header>
-      <h1>Hand Physiotherapy</h1>
-      <p class="subtitle">BLE Measurement System</p>
-    </header>
+  <main class="container">
+    <section class="card">
+      <h1>BeagleY Physio</h1>
+      <p class="subtitle">BLE Physiotherapy Measurement</p>
 
-    <section class="status-row">
-      <span id="status-dot" class="status-dot disconnected" aria-hidden="true"></span>
-      <span id="status-text" class="status-text">Bluetooth: Disconnected</span>
-    </section>
-
-    <section class="actions">
-      <button id="connect-btn" class="btn btn-primary" type="button">Connect Bluetooth</button>
-    </section>
-
-    <div id="error-banner" class="error-banner" role="alert" hidden></div>
-
-    <hr>
-
-    <section class="measurements">
-      <div class="metric">
-        <span class="metric-label">Elbow ROM &mdash; Standing</span>
-        <span id="elbow-standing" class="metric-value">--.--&deg;</span>
+      <div class="status-row">
+        <span id="statusDot" class="dot"></span>
+        <span id="statusText">Disconnected</span>
       </div>
-      <div class="metric">
-        <span class="metric-label">Elbow ROM &mdash; Laying</span>
-        <span id="elbow-laying" class="metric-value">--.--&deg;</span>
+
+      <button id="connectBtn">Connect BeagleY-AI</button>
+
+      <div class="grid">
+        <div class="metric">
+          <span>Standing Elbow</span>
+          <strong id="standing">--.--°</strong>
+        </div>
+        <div class="metric">
+          <span>Laying Elbow</span>
+          <strong id="laying">--.--°</strong>
+        </div>
+        <div class="metric">
+          <span>Forearm Tilt</span>
+          <strong id="forearm">--.--°</strong>
+        </div>
+        <div class="metric highlight">
+          <span>Final ROM</span>
+          <strong id="rom">--.--°</strong>
+        </div>
       </div>
-      <div class="metric">
-        <span class="metric-label">Forearm Tilt</span>
-        <span id="forearm-tilt" class="metric-value">--.--&deg;</span>
-      </div>
-      <div class="metric metric-final">
-        <span class="metric-label">Final ROM</span>
-        <span id="final-rom" class="metric-value">--.--&deg;</span>
-      </div>
+
+      <button id="resetBtn" class="secondary" disabled>Reset ROM</button>
+      <p id="message" class="message"></p>
     </section>
-
-    <hr>
-
-    <section class="actions">
-      <button id="reset-btn" class="btn btn-secondary" type="button">Reset ROM</button>
-    </section>
-
-    <footer>
-      <p>Connects directly to a BeagleY-AI over Bluetooth Low Energy. No data leaves your device.</p>
-    </footer>
   </main>
 
-  <script src="app.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>

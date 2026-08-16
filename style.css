@@ -1,16 +1,7 @@
 :root {
-  --bg: #0f172a;
-  --card-bg: #ffffff;
-  --text: #1e293b;
-  --muted: #64748b;
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary: #e2e8f0;
-  --secondary-text: #334155;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --border: #e2e8f0;
-  --radius: 14px;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f3f4f6;
 }
 
 * {
@@ -20,180 +11,112 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  background: linear-gradient(160deg, #0f172a 0%, #1e3a8a 100%);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  width: min(760px, 94vw);
 }
 
 .card {
-  width: 100%;
-  max-width: 480px;
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
-header h1 {
-  margin: 0 0 4px 0;
-  font-size: 1.6rem;
-  font-weight: 700;
+h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
 .subtitle {
-  margin: 0 0 20px 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+  color: #6b7280;
+  margin-top: 6px;
 }
 
 .status-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  font-size: 0.95rem;
+  gap: 10px;
+  margin: 24px 0;
+  font-weight: 600;
 }
 
-.status-dot {
-  width: 10px;
-  height: 10px;
+.dot {
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  flex-shrink: 0;
+  background: #9ca3af;
 }
 
-.status-dot.disconnected {
-  background: var(--danger);
+.dot.connected {
+  background: #16a34a;
 }
 
-.status-dot.connected {
-  background: var(--success);
-}
-
-.status-dot.connecting {
-  background: #f59e0b;
-}
-
-.status-text {
-  font-weight: 600;
-}
-
-.actions {
-  margin-bottom: 8px;
-}
-
-.btn {
+button {
   width: 100%;
-  padding: 13px 18px;
-  border-radius: 10px;
-  border: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 14px 18px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.15s ease, opacity 0.15s ease, transform 0.05s ease;
+  background: #111827;
+  color: white;
 }
 
-.btn:active {
-  transform: scale(0.99);
-}
-
-.btn:disabled {
+button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
 
-.btn-primary {
-  background: var(--primary);
-  color: #fff;
+.secondary {
+  margin-top: 20px;
+  background: #374151;
 }
 
-.btn-primary:hover:not(:disabled) {
-  background: var(--primary-dark);
-}
-
-.btn-secondary {
-  background: var(--secondary);
-  color: var(--secondary-text);
-}
-
-.btn-secondary:hover:not(:disabled) {
-  background: #cbd5e1;
-}
-
-.error-banner {
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fecaca;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 22px 0;
-}
-
-.measurements {
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
+  margin-top: 24px;
 }
 
 .metric {
-  background: #f8fafc;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px;
 }
 
-.metric-final {
-  grid-column: 1 / -1;
-  background: #eff6ff;
-  border-color: #bfdbfe;
+.metric span {
+  display: block;
+  color: #6b7280;
+  font-size: 0.9rem;
 }
 
-.metric-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+.metric strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.8rem;
 }
 
-.metric-value {
-  font-size: 1.6rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
+.metric.highlight {
+  border-width: 2px;
 }
 
-footer {
-  margin-top: 22px;
-  text-align: center;
+.message {
+  min-height: 24px;
+  color: #6b7280;
 }
 
-footer p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.4;
-}
-
-@media (max-width: 400px) {
-  .measurements {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .card {
+    padding: 22px;
   }
 
-  .card {
-    padding: 26px 20px;
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
